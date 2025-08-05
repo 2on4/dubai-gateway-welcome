@@ -46,16 +46,16 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
             
             {/* Left side - Dynamic Image Grid */}
-            <div className="grid grid-cols-2 gap-2 h-[85vh]">
+            <div className="grid grid-cols-2 auto-rows-fr gap-2 h-[80vh] max-h-[600px]">
               {images.map((image, index) => (
                 <div 
                   key={index}
                   className={`relative overflow-hidden rounded-lg group cursor-pointer ${
-                    index === 0 ? 'row-span-2' : index === 3 ? 'row-span-2' : ''
+                    index === 0 ? 'row-span-2' : index === 3 ? 'row-span-2' : 'h-full'
                   }`}
                 >
                   {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
                   
                   {/* Image */}
                   <img
