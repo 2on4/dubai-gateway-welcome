@@ -114,7 +114,7 @@ const Index = () => {
                     alt="Leventis Logo" 
                     className="hidden lg:block h-16 w-16 object-contain"
                   />
-                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-light text-white leading-tight font-inter">
+                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-light text-white leading-tight">
                     Leventis <span className="text-primary font-inter">AMC</span>
                   </h1>
                 </div>
