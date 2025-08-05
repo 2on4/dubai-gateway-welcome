@@ -43,49 +43,53 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
             
             {/* Left side - Dynamic Asymmetrical Grid */}
-            <div className="grid grid-cols-2 grid-rows-3 gap-2 h-[80vh] max-h-[600px]">
-              {/* Left column - large top image */}
-              <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
-                <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
-                <img
-                  src={images[0].src}
-                  alt={images[0].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+            <div className="grid grid-cols-2 gap-2 h-[80vh] max-h-[600px]">
+              <div className="grid grid-rows-3 gap-2">
+                {/* Left column - large top image (spans 2 rows) */}
+                <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
+                  <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
+                  <img
+                    src={images[0].src}
+                    alt={images[0].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+                </div>
+                
+                {/* Left column - small bottom image */}
+                <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+                  <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
+                  <img
+                    src={images[2].src}
+                    alt={images[2].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+                </div>
               </div>
               
-              {/* Right column - small top image */}
-              <div className="relative overflow-hidden rounded-lg group cursor-pointer">
-                <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
-                <img
-                  src={images[3].src}
-                  alt={images[3].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-              </div>
-              
-              {/* Left column - small bottom image */}
-              <div className="relative overflow-hidden rounded-lg group cursor-pointer">
-                <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
-                <img
-                  src={images[2].src}
-                  alt={images[2].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-              </div>
-              
-              {/* Right column - large bottom image */}
-              <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
-                <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
-                <img
-                  src={images[1].src}
-                  alt={images[1].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+              <div className="grid grid-rows-3 gap-2">
+                {/* Right column - small top image */}
+                <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+                  <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
+                  <img
+                    src={images[3].src}
+                    alt={images[3].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+                </div>
+                
+                {/* Right column - large bottom image (spans 2 rows) */}
+                <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
+                  <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
+                  <img
+                    src={images[1].src}
+                    alt={images[1].alt}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+                </div>
               </div>
             </div>
 
