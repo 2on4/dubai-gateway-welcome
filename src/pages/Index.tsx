@@ -5,7 +5,7 @@ import dubaiSkyline from "@/assets/dubai-skyline.jpg";
 import dubaiFinancial from "@/assets/dubai-financial.jpg";
 import dubaiMarina from "@/assets/dubai-marina.jpg";
 import dubaiDifc from "@/assets/dubai-difc.jpg";
-import leventisLogo from "@/assets/leventis-logo.png";
+
 
 const Index = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -99,7 +99,7 @@ const Index = () => {
               {/* Logo for mobile/tablet */}
               <div className="flex justify-center lg:hidden mb-8">
                 <img 
-                  src={leventisLogo} 
+                  src="/logo.png" 
                   alt="Leventis Logo" 
                   className="h-24 w-24 object-contain"
                 />
@@ -110,7 +110,7 @@ const Index = () => {
                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
                   {/* Logo for desktop */}
                   <img 
-                    src={leventisLogo} 
+                    src="/logo.png" 
                     alt="Leventis Logo" 
                     className="hidden lg:block h-16 w-16 object-contain"
                   />
