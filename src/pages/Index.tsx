@@ -55,12 +55,12 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
               </div>
               
-              {/* Right column - large top image */}
-              <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
+              {/* Right column - small top image */}
+              <div className="relative overflow-hidden rounded-lg group cursor-pointer">
                 <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
                 <img
-                  src={images[1].src}
-                  alt={images[1].alt}
+                  src={images[3].src}
+                  alt={images[3].alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
@@ -77,12 +77,12 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
               </div>
               
-              {/* Right column - small bottom image */}
-              <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+              {/* Right column - large bottom image */}
+              <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
                 <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
                 <img
-                  src={images[3].src}
-                  alt={images[3].alt}
+                  src={images[1].src}
+                  alt={images[1].alt}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
