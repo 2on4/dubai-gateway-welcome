@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { LocationSelector } from "@/components/LocationSelector";
 import dubaiSkyline from "@/assets/dubai-skyline.jpg";
 import dubaiFinancial from "@/assets/dubai-financial.jpg";
 import dubaiMarina from "@/assets/dubai-marina.jpg";
@@ -41,10 +42,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
             
-            {/* Left side - Dynamic 2x2 Asymmetrical Grid */}
-            <div className="grid grid-cols-2 grid-rows-2 gap-2 h-[80vh] max-h-[600px]">
-              {/* Top-left image */}
-              <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+            {/* Left side - Dynamic Asymmetrical Grid */}
+            <div className="grid grid-cols-2 grid-rows-3 gap-2 h-[80vh] max-h-[600px]">
+              {/* Left column - large top image */}
+              <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
                 <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
                 <img
                   src={images[0].src}
@@ -54,8 +55,8 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
               </div>
               
-              {/* Top-right image */}
-              <div className="relative overflow-hidden rounded-lg group cursor-pointer">
+              {/* Right column - large top image */}
+              <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
                 <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
                 <img
                   src={images[1].src}
@@ -65,7 +66,7 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
               </div>
               
-              {/* Bottom-left image */}
+              {/* Left column - small bottom image */}
               <div className="relative overflow-hidden rounded-lg group cursor-pointer">
                 <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
                 <img
@@ -76,7 +77,7 @@ const Index = () => {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
               </div>
               
-              {/* Bottom-right image */}
+              {/* Right column - small bottom image */}
               <div className="relative overflow-hidden rounded-lg group cursor-pointer">
                 <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
                 <img
@@ -106,15 +107,11 @@ const Index = () => {
               </div>
 
               {/* Location Selector */}
-              <div className="space-y-4">
-                <p className="text-white/60 text-sm">Please select your location</p>
-                <button 
-                  onClick={handleSubmit}
-                  className="bg-primary hover:bg-primary/90 text-black px-8 py-3 rounded-lg font-medium transition-colors"
-                >
-                  Continue
-                </button>
-              </div>
+              <LocationSelector 
+                selectedCountry={selectedCountry}
+                onCountrySelect={setSelectedCountry}
+                onSubmit={handleSubmit}
+              />
             </div>
             
           </div>
