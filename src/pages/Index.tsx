@@ -5,6 +5,7 @@ import dubaiSkyline from "@/assets/dubai-skyline.jpg";
 import dubaiFinancial from "@/assets/dubai-financial.jpg";
 import dubaiMarina from "@/assets/dubai-marina.jpg";
 import dubaiDifc from "@/assets/dubai-difc.jpg";
+import leventisLogo from "@/assets/leventis-logo.png";
 
 const Index = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -38,12 +39,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Main Content */}
-      <div className="py-12">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
+      <div className="py-6 md:py-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[90vh]">
             
-            {/* Left side - Dynamic Asymmetrical Grid */}
-            <div className="grid grid-cols-2 gap-2 h-[80vh] max-h-[600px]">
+            {/* Left side - Dynamic Asymmetrical Grid (Hidden on mobile/tablet) */}
+            <div className="hidden lg:grid grid-cols-2 gap-2 h-[80vh] max-h-[600px]">
               <div className="grid grid-rows-3 gap-2">
                 {/* Left column - large top image (spans 2 rows) */}
                 <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
@@ -94,17 +95,34 @@ const Index = () => {
             </div>
 
             {/* Right side - Content */}
-            <div className="space-y-8 lg:pl-8">
+            <div className="space-y-8 lg:pl-8 text-center lg:text-left">
+              {/* Logo for mobile/tablet */}
+              <div className="flex justify-center lg:hidden mb-8">
+                <img 
+                  src={leventisLogo} 
+                  alt="Leventis Logo" 
+                  className="h-24 w-24 object-contain"
+                />
+              </div>
+
               {/* Main Heading */}
               <div className="space-y-4">
-                <h1 className="text-6xl lg:text-7xl font-light text-white leading-tight">
-                  Leventis AMC
-                </h1>
+                <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
+                  {/* Logo for desktop */}
+                  <img 
+                    src={leventisLogo} 
+                    alt="Leventis Logo" 
+                    className="hidden lg:block h-16 w-16 object-contain"
+                  />
+                  <h1 className="text-4xl md:text-5xl lg:text-7xl font-light text-white leading-tight font-inter">
+                    Leventis <span className="text-primary font-inter">AMC</span>
+                  </h1>
+                </div>
                 <div className="space-y-3">
-                  <p className="text-white/80 text-lg leading-relaxed">
+                  <p className="text-white/80 text-base md:text-lg leading-relaxed">
                     Expertly managed portfolios for institutional and private clients.
                   </p>
-                  <p className="text-white/80 text-lg leading-relaxed">
+                  <p className="text-white/80 text-base md:text-lg leading-relaxed">
                     Regulated, transparent, and focused on your financial growth.
                   </p>
                 </div>
@@ -123,8 +141,8 @@ const Index = () => {
       </div>
 
       {/* Subtle background elements */}
-      <div className="absolute top-1/3 right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-1/4 left-10 w-48 h-48 bg-blue-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-1/3 right-4 md:right-10 w-32 h-32 md:w-64 md:h-64 bg-primary/5 rounded-full blur-3xl animate-pulse -z-10"></div>
+      <div className="absolute bottom-1/4 left-4 md:left-10 w-24 h-24 md:w-48 md:h-48 bg-blue-500/5 rounded-full blur-3xl animate-pulse -z-10" style={{ animationDelay: '2s' }}></div>
     </div>
   );
 };
