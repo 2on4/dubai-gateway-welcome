@@ -45,12 +45,14 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
             
-            {/* Left side - Image Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            {/* Left side - Dynamic Image Grid */}
+            <div className="grid grid-cols-2 gap-2 h-[85vh]">
               {images.map((image, index) => (
                 <div 
                   key={index}
-                  className="relative aspect-square overflow-hidden rounded-lg group cursor-pointer"
+                  className={`relative overflow-hidden rounded-lg group cursor-pointer ${
+                    index === 0 ? 'row-span-2' : index === 3 ? 'row-span-2' : ''
+                  }`}
                 >
                   {/* Dark overlay */}
                   <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-all duration-500"></div>
