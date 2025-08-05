@@ -37,8 +37,23 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Premium Background Elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-black/90 -z-10"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/3 via-transparent to-transparent -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-accent/2 via-transparent to-transparent -z-10"></div>
+      
+      {/* Geometric Elements */}
+      <div className="absolute top-1/4 right-16 w-1 h-32 bg-gradient-to-b from-primary/40 to-transparent -z-10"></div>
+      <div className="absolute top-1/3 right-20 w-8 h-px bg-primary/30 -z-10"></div>
+      <div className="absolute bottom-1/3 left-16 w-1 h-24 bg-gradient-to-t from-accent/30 to-transparent -z-10"></div>
+      
+      {/* Floating Particles */}
+      <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-primary/40 rounded-full animate-pulse -z-10"></div>
+      <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-primary/60 rounded-full animate-pulse -z-10" style={{ animationDelay: '1s' }}></div>
+      <div className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 bg-accent/50 rounded-full animate-pulse -z-10" style={{ animationDelay: '2s' }}></div>
+
       {/* Main Content */}
-      <div className="py-12">
+      <div className="py-12 relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
             
@@ -155,20 +170,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Premium Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-black/95 to-black/90"></div>
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-primary/3 via-transparent to-transparent"></div>
-      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-accent/2 via-transparent to-transparent"></div>
-      
-      {/* Geometric Elements */}
-      <div className="absolute top-1/4 right-16 w-1 h-32 bg-gradient-to-b from-primary/40 to-transparent"></div>
-      <div className="absolute top-1/3 right-20 w-8 h-px bg-primary/30"></div>
-      <div className="absolute bottom-1/3 left-16 w-1 h-24 bg-gradient-to-t from-accent/30 to-transparent"></div>
-      
-      {/* Floating Particles */}
-      <div className="absolute top-1/2 right-1/4 w-2 h-2 bg-primary/40 rounded-full animate-pulse"></div>
-      <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-primary/60 rounded-full animate-pulse" style={{ animationDelay: '1s' }}></div>
-      <div className="absolute bottom-1/4 left-1/4 w-1.5 h-1.5 bg-accent/50 rounded-full animate-pulse" style={{ animationDelay: '2s' }}></div>
     </div>
   );
 };
