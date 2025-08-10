@@ -311,10 +311,10 @@ export const SignatureAnimation = () => {
             opacity: 1;
           }
           .reveal-logo .logo-fade {
-            animation: logoFadeIn 0.9s ease-in-out forwards;
+            animation: logoFadeIn 1.4s ease-in-out forwards;
           }
           .reveal-logo .strokes-crossfade {
-            animation: strokesFadeOut 0.9s ease-in-out forwards;
+            animation: strokesFadeOut 1.4s ease-in-out forwards;
           }
 
           @keyframes drawSignature {
