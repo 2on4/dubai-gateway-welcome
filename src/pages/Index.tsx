@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { LocationSelector } from "@/components/LocationSelector";
-import dubaiSkyline from "@/assets/dubai-skyline.jpg";
-import dubaiFinancial from "@/assets/dubai-financial.jpg";
-import dubaiMarina from "@/assets/dubai-marina.jpg";
-import dubaiDifc from "@/assets/dubai-difc.jpg";
+import { SignatureAnimation } from "@/components/SignatureAnimation";
 
 
 const Index = () => {
@@ -29,12 +26,6 @@ const Index = () => {
     console.log(`Redirecting to portal for: ${selectedCountry}`);
   };
 
-  const images = [
-    { src: dubaiSkyline, alt: "Dubai Skyline" },
-    { src: dubaiFinancial, alt: "Dubai Financial District" },
-    { src: dubaiMarina, alt: "Dubai Marina" },
-    { src: dubaiDifc, alt: "Dubai International Financial Centre" },
-  ];
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -43,55 +34,9 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[90vh]">
             
-            {/* Left side - Dynamic Asymmetrical Grid (Hidden on mobile/tablet) */}
-            <div className="hidden lg:grid grid-cols-2 gap-2 h-[80vh] max-h-[600px]">
-              <div className="grid grid-rows-3 gap-2">
-                {/* Left column - large top image (spans 2 rows) */}
-                <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
-                  <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
-                  <img
-                    src={images[0].src}
-                    alt={images[0].alt}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-                </div>
-                
-                {/* Left column - small bottom image */}
-                <div className="relative overflow-hidden rounded-lg group cursor-pointer">
-                  <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
-                  <img
-                    src={images[2].src}
-                    alt={images[2].alt}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-                </div>
-              </div>
-              
-              <div className="grid grid-rows-3 gap-2">
-                {/* Right column - small top image */}
-                <div className="relative overflow-hidden rounded-lg group cursor-pointer">
-                  <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
-                  <img
-                    src={images[3].src}
-                    alt={images[3].alt}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-                </div>
-                
-                {/* Right column - large bottom image (spans 2 rows) */}
-                <div className="row-span-2 relative overflow-hidden rounded-lg group cursor-pointer">
-                  <div className="absolute inset-0 bg-black/60 z-10 group-hover:bg-black/40 transition-all duration-500"></div>
-                  <img
-                    src={images[1].src}
-                    alt={images[1].alt}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
-                </div>
-              </div>
+            {/* Left side - Signature Animation (Hidden on mobile/tablet) */}
+            <div className="hidden lg:flex items-center justify-center h-[80vh] max-h-[600px]">
+              <SignatureAnimation />
             </div>
 
             {/* Right side - Content */}
