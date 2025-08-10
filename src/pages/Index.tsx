@@ -32,10 +32,10 @@ const Index = () => {
       {/* Main Content */}
       <div className="py-6 md:py-12">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
-          <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-16 items-center min-h-[90vh]">
+          <div className="grid lg:grid-cols-2 gap-4 md:gap-6 lg:gap-16 items-center lg:min-h-[90vh]">
             
             {/* Left side - Signature Animation (Hidden on mobile/tablet) */}
-            <div className="flex items-center justify-center h-[40vh] md:h-[60vh] lg:h-[80vh] max-h-[600px]">
+            <div className="flex items-center justify-center h-[30vh] md:h-[45vh] lg:h-[80vh] max-h-[600px]">
               <SignatureAnimation />
             </div>
 
