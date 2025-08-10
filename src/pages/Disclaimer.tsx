@@ -36,7 +36,7 @@ const Disclaimer: React.FC = () => {
     try {
       localStorage.setItem("disclaimerAccepted", "true");
     } catch {}
-    navigate("/");
+    navigate("/home");
   };
 
   const handleReject = () => {
