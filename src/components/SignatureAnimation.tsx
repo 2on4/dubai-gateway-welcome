@@ -4,10 +4,10 @@ export const SignatureAnimation = () => {
   const [startCrossfade, setStartCrossfade] = useState(false);
 
   return (
-    <div className="signature-container text-center relative">
+    <div className="signature-container text-center relative w-full h-[600px]">
       {/* Signature SVG - fades out during crossfade */}
       <div
-        className={`transition-opacity duration-[2000ms] ease-in-out ${
+        className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${
           startCrossfade ? "opacity-0" : "opacity-100"
         } mix-blend-screen`}
         style={{
@@ -19,9 +19,8 @@ export const SignatureAnimation = () => {
       >
         <svg
           viewBox="0 0 1024 880"
-          width="100%"
-          height="600"
-          className="max-w-full h-auto bg-transparent"
+          preserveAspectRatio="xMidYMid meet"
+          className="w-full h-full bg-transparent"
         >
           <path
             className="signature-path"
@@ -93,14 +92,12 @@ export const SignatureAnimation = () => {
 
       {/* Logo that fades in during crossfade - same size as animation */}
       <div
-        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-[2000ms] ease-in-out ${
-          startCrossfade ? "opacity-100" : "opacity-0"
-        }`}
+        className={`absolute inset-0 transition-opacity duration-[2000ms] ease-in-out ${startCrossfade ? "opacity-100" : "opacity-0"}`}
       >
         <img
           src="/logo.png"
           alt="Leventis Logo"
-          className="w-full h-[600px] object-contain"
+          className="w-full h-full object-contain"
         />
       </div>
 
