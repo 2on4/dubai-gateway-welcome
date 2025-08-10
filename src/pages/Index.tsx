@@ -47,21 +47,16 @@ const Index = () => {
               <div className="space-y-4">
                 <div className="flex items-center justify-center lg:justify-start gap-4 mb-6">
                   {/* Logo for desktop */}
-                  <img 
-                    src="/logo.png" 
-                    alt="Leventis Logo" 
-                    className="hidden lg:block h-16 w-16 object-contain"
-                  />
                   <h1 className="text-4xl md:text-5xl lg:text-7xl font-light text-white leading-tight">
                     Leventis <span className="text-primary font-inter">AMC</span>
                   </h1>
                 </div>
                 <div className="space-y-3">
                   <p className="text-white/80 text-base md:text-lg leading-relaxed">
-                    Expertly managed portfolios for institutional and private clients.
+                    Your trusted guide through sophisticated investment opportunities.
                   </p>
                   <p className="text-white/80 text-base md:text-lg leading-relaxed">
-                    Regulated, transparent, and focused on your financial growth.
+                    Leventis AMC combines decades of financial expertise with deep market insights to help professional investors navigate complex global markets.
                   </p>
                 </div>
               </div>
