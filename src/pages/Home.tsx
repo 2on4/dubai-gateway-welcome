@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-import HeroSection from "@/components/home/HeroSection";
-import WhatWeDoSection from "@/components/home/WhatWeDoSection";
-import AboutDIFCSection from "@/components/home/AboutDIFCSection";
-import ContactSection from "@/components/home/ContactSection";
+import Header from "@/components/Header";
+import DynamicSection from "@/components/DynamicSection";
+import Footer from "@/components/Footer";
+import { siteConfig } from "@/data/siteConfig";
 
 const Home: React.FC = () => {
   useEffect(() => {
@@ -28,11 +28,16 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <main>
-      <HeroSection />
-      <WhatWeDoSection />
-      <AboutDIFCSection />
-      <ContactSection />
+    <main className="min-h-screen">
+      <Header />
+      <div className="pt-16">{/* account for fixed header height */}
+        {siteConfig.sections
+          .filter((s) => !['funds','news','board','team'].includes(s.id))
+          .map((section) => (
+            <DynamicSection key={section.id} section={section} />
+          ))}
+      </div>
+      <Footer />
     </main>
   );
 };
