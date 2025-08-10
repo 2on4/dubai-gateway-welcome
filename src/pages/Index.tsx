@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { LocationSelector } from "@/components/LocationSelector";
 import { SignatureAnimation } from "@/components/SignatureAnimation";
@@ -8,14 +8,6 @@ const Index = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const { toast } = useToast();
   const navigate = useNavigate();
-useEffect(() => {
-  try {
-    if (localStorage.getItem("disclaimerAccepted") === "true") {
-      navigate("/home");
-    }
-  } catch {}
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, []);
 const handleSubmit = () => {
   if (!selectedCountry) {
     toast({
