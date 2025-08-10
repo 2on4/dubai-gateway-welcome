@@ -4,18 +4,18 @@ export const SignatureAnimation = () => {
   const [animationComplete, setAnimationComplete] = useState(false);
 
   useEffect(() => {
-    // Animation completes when the last layer (highlight) finishes: 0.3s delay + 8s duration = 8.3s
+    // Start crossfade at 4.5 seconds when drawing is nearly complete
     const timer = setTimeout(() => {
       setAnimationComplete(true);
-    }, 8300);
+    }, 4500);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="signature-container text-center relative">
-      {/* Signature SVG */}
-      <div className={`transition-opacity duration-1000 ${animationComplete ? 'opacity-0' : 'opacity-100'}`}>
+      {/* Signature SVG - fades out during crossfade */}
+      <div className={`transition-opacity duration-[2000ms] ease-in-out ${animationComplete ? 'opacity-0' : 'opacity-100'}`}>
         <svg 
           viewBox="650 200 600 600" 
           width="100%" 
@@ -48,8 +48,8 @@ export const SignatureAnimation = () => {
         </svg>
       </div>
       
-      {/* Logo that fades in after animation - same size as animation */}
-      <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-1000 ${animationComplete ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Logo that fades in during crossfade - same size as animation */}
+      <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-[2000ms] ease-in-out ${animationComplete ? 'opacity-100' : 'opacity-0'}`}>
         <img 
           src="/logo.png" 
           alt="Leventis Logo" 
