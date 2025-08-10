@@ -238,7 +238,7 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.15;
             filter: blur(8px);
-            animation: drawSignature 7.5s ease-in-out forwards;
+            animation: drawSignature 4.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           }
           .signature-medium {
             fill: none;
@@ -250,7 +250,7 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.4;
             filter: blur(2px);
-            animation: drawSignature 7.5s ease-in-out 0.2s forwards;
+            animation: drawSignature 4.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           }
           .signature-path {
             fill: none;
@@ -261,18 +261,18 @@ export const SignatureAnimation = () => {
             stroke-dasharray: 6000;
             stroke-dashoffset: 6000;
             filter: drop-shadow(0 0 3px hsl(var(--signature) / 0.5));
-            animation: drawSignature 7.5s ease-in-out 0.4s forwards;
+            animation: drawSignature 4.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
           }
 
-          /* Crossfade: logo fades in as strokes fade out */
+          /* Crossfade begins immediately after draw completes */
           .logo-fade {
             opacity: 0;
-            animation: logoFadeIn 1.8s ease-in-out forwards;
-            animation-delay: 6.4s; /* starts before strokes finish for overlap */
+            animation: logoFadeIn 1.4s ease-in-out forwards;
+            animation-delay: 4.3s;
           }
           .strokes-crossfade {
-            animation: strokesFadeOut 1.6s ease-in-out forwards;
-            animation-delay: 6.6s; /* slight offset so crossfade feels natural */
+            animation: strokesFadeOut 1.4s ease-in-out forwards;
+            animation-delay: 4.3s;
           }
 
           @keyframes drawSignature {
