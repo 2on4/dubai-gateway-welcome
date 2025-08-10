@@ -11,15 +11,32 @@ export const SignatureAnimation = () => {
   useEffect(() => {
     const svg = svgRef.current;
     const path = pathRef.current;
-    if (!svg || !path) return;
-    const onEnd = (e: any) => {
+    if (!svg) return;
+
+    // Ensure stroke-dash metrics match real path lengths so visual end === animation end
+    const paths = svg.querySelectorAll<SVGPathElement>('.signature-glow, .signature-medium, .signature-path');
+    paths.forEach((p) => {
+      try {
+        const len = Math.ceil(p.getTotalLength());
+        p.style.strokeDasharray = `${len}`;
+        p.style.strokeDashoffset = `${len}`;
+      } catch (e) {
+        // ignore if path length cannot be computed
+      }
+    });
+
+    const onEnd = (e: AnimationEvent) => {
       if (e.animationName === 'drawSignature') {
         svg.classList.add('reveal-logo');
       }
     };
-    path.addEventListener('animationend', onEnd as any);
+
+    // Listen on the main path if available, otherwise on the group
+    const target: Element | null = path ?? svg.querySelector('.signature-path');
+    target?.addEventListener('animationend', onEnd as any);
+
     return () => {
-      path.removeEventListener('animationend', onEnd as any);
+      target?.removeEventListener('animationend', onEnd as any);
     };
   }, []);
 
@@ -301,8 +318,7 @@ export const SignatureAnimation = () => {
           }
 
           @keyframes drawSignature {
-            0% { stroke-dashoffset: 6000; }
-            100% { stroke-dashoffset: 0; }
+            to { stroke-dashoffset: 0; }
           }
           @keyframes logoFadeIn {
             from { opacity: 0; }
