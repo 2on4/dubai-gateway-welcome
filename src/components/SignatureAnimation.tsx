@@ -292,7 +292,7 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.15;
             filter: blur(8px);
-            animation: drawSignature var(--draw-duration) linear forwards;
+            animation: drawSignature var(--draw-duration) cubic-bezier(0.32, 0.02, 0.2, 1) forwards, glowPulse var(--draw-duration) ease-in-out forwards;
           }
           .signature-medium {
             fill: none;
@@ -304,7 +304,7 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.4;
             filter: blur(2px);
-            animation: drawSignature var(--draw-duration) linear forwards;
+            animation: drawSignature var(--draw-duration) cubic-bezier(0.32, 0.02, 0.2, 1) forwards, glowPulse var(--draw-duration) ease-in-out forwards;
           }
           .signature-path {
             fill: none;
@@ -315,7 +315,7 @@ export const SignatureAnimation = () => {
             stroke-dasharray: 6000;
             stroke-dashoffset: 6000;
             filter: drop-shadow(0 0 3px hsl(var(--signature) / 0.5));
-            animation: drawSignature var(--draw-duration) linear forwards;
+            animation: drawSignature var(--draw-duration) cubic-bezier(0.32, 0.02, 0.2, 1) forwards, pressurePulse var(--draw-duration) ease-in-out forwards;
           }
 
           /* Crossfade is triggered by a class when drawing finishes */
@@ -342,6 +342,25 @@ export const SignatureAnimation = () => {
           @keyframes strokesFadeOut {
             from { opacity: 1; }
             to { opacity: 0; }
+          }
+
+          @keyframes pressurePulse {
+            0% { stroke-width: 2.8; }
+            8% { stroke-width: 3.3; }
+            15% { stroke-width: 3.0; }
+            28% { stroke-width: 3.4; }
+            45% { stroke-width: 3.0; }
+            60% { stroke-width: 3.3; }
+            78% { stroke-width: 2.9; }
+            100% { stroke-width: 3.0; }
+          }
+
+          @keyframes glowPulse {
+            0% { opacity: 0.12; }
+            20% { opacity: 0.18; }
+            50% { opacity: 0.22; }
+            80% { opacity: 0.16; }
+            100% { opacity: 0.15; }
           }
 
           /* Mobile performance tweaks */
