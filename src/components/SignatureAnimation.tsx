@@ -1,15 +1,36 @@
 
 
+import { useEffect, useRef } from "react";
+
 export const SignatureAnimation = () => {
   
+
+  const svgRef = useRef<SVGSVGElement | null>(null);
+  const pathRef = useRef<SVGPathElement | null>(null);
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    const path = pathRef.current;
+    if (!svg || !path) return;
+    const onEnd = (e: any) => {
+      if (e.animationName === 'drawSignature') {
+        svg.classList.add('reveal-logo');
+      }
+    };
+    path.addEventListener('animationend', onEnd as any);
+    return () => {
+      path.removeEventListener('animationend', onEnd as any);
+    };
+  }, []);
 
   return (
     <div className="relative w-full h-[600px]">
       <svg
+        ref={svgRef}
         viewBox="0 0 1024 880"
         preserveAspectRatio="xMidYMid meet"
         className="w-full h-full"
-        style={{ ["--signature" as any]: "44 51% 67%" }}
+        style={{ ["--signature" as any]: "44 51% 67%", ["--draw-duration" as any]: "4.3s" }}
       >
         {/* Logo inside the same SVG for perfect 1:1 sizing with the drawing */}
         <image
@@ -161,6 +182,7 @@ export const SignatureAnimation = () => {
 
           {/* Main signature path */}
           <path
+            ref={pathRef}
             className="signature-path"
             d="M242.894135,652.042969 
               C256.770111,608.359314 269.993622,564.911926 281.274933,520.869080 
@@ -238,7 +260,7 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.15;
             filter: blur(8px);
-            animation: drawSignature 4.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: drawSignature var(--draw-duration) linear forwards;
           }
           .signature-medium {
             fill: none;
@@ -250,7 +272,7 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.4;
             filter: blur(2px);
-            animation: drawSignature 4.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: drawSignature var(--draw-duration) linear forwards;
           }
           .signature-path {
             fill: none;
@@ -261,18 +283,21 @@ export const SignatureAnimation = () => {
             stroke-dasharray: 6000;
             stroke-dashoffset: 6000;
             filter: drop-shadow(0 0 3px hsl(var(--signature) / 0.5));
-            animation: drawSignature 4.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            animation: drawSignature var(--draw-duration) linear forwards;
           }
 
-          /* Crossfade begins immediately after draw completes */
+          /* Crossfade is triggered by a class when drawing finishes */
           .logo-fade {
             opacity: 0;
-            animation: logoFadeIn 1.4s ease-in-out forwards;
-            animation-delay: 4.3s;
           }
           .strokes-crossfade {
-            animation: strokesFadeOut 1.4s ease-in-out forwards;
-            animation-delay: 4.3s;
+            opacity: 1;
+          }
+          .reveal-logo .logo-fade {
+            animation: logoFadeIn 0.9s ease-in-out forwards;
+          }
+          .reveal-logo .strokes-crossfade {
+            animation: strokesFadeOut 0.9s ease-in-out forwards;
           }
 
           @keyframes drawSignature {
