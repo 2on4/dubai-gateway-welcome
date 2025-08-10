@@ -1,7 +1,7 @@
-import { useState } from "react";
+
 
 export const SignatureAnimation = () => {
-  const [startCrossfade, setStartCrossfade] = useState(false);
+  
 
   return (
     <div className="relative w-full h-[600px]">
@@ -9,6 +9,7 @@ export const SignatureAnimation = () => {
         viewBox="0 0 1024 880"
         preserveAspectRatio="xMidYMid meet"
         className="w-full h-full"
+        style={{ ["--signature" as any]: "44 51% 67%" }}
       >
         {/* Logo inside the same SVG for perfect 1:1 sizing with the drawing */}
         <image
@@ -18,16 +19,12 @@ export const SignatureAnimation = () => {
           width="1024"
           height="880"
           preserveAspectRatio="xMidYMid meet"
-          className={`pointer-events-none transition-opacity duration-[2000ms] ease-in-out ${
-            startCrossfade ? "opacity-100" : "opacity-0"
-          }`}
+          className="pointer-events-none logo-fade"
         />
 
         {/* Signature strokes (drawn), fading out as the logo fades in */}
         <g
-          className={`transition-opacity duration-[2000ms] ease-in-out ${
-            startCrossfade ? "opacity-0" : "opacity-100"
-          }`}
+          className="strokes-crossfade"
           style={{ mixBlendMode: "screen" }}
         >
           {/* Subtle outer glow */}
@@ -226,14 +223,14 @@ export const SignatureAnimation = () => {
               C595.142151,696.676147 623.414185,706.037720 651.877197,714.973755 
               C669.508911,720.509216 687.294922,725.584595 704.589417,732.146790 
               C722.243286,738.845459 736.652954,749.673584 746.785645,765.820557"
-            onAnimationEnd={() => setStartCrossfade(true)}
+            
           />
         </g>
 
         <style>{`
           .signature-glow {
             fill: none;
-            stroke: hsl(var(--primary));
+            stroke: hsl(var(--signature));
             stroke-width: 12;
             stroke-linecap: round;
             stroke-linejoin: round;
@@ -241,11 +238,11 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.15;
             filter: blur(8px);
-            animation: drawSignature 4.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+            animation: drawSignature 7.5s ease-in-out forwards;
           }
           .signature-medium {
             fill: none;
-            stroke: hsl(var(--primary));
+            stroke: hsl(var(--signature));
             stroke-width: 6;
             stroke-linecap: round;
             stroke-linejoin: round;
@@ -253,22 +250,42 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.4;
             filter: blur(2px);
-            animation: drawSignature 4.5s cubic-bezier(0.4, 0.0, 0.2, 1) 0.1s forwards;
+            animation: drawSignature 7.5s ease-in-out 0.2s forwards;
           }
           .signature-path {
             fill: none;
-            stroke: hsl(var(--primary));
+            stroke: hsl(var(--signature));
             stroke-width: 3;
             stroke-linecap: round;
             stroke-linejoin: round;
             stroke-dasharray: 6000;
             stroke-dashoffset: 6000;
-            filter: drop-shadow(0 0 3px hsl(var(--primary) / 0.5));
-            animation: drawSignature 4.5s cubic-bezier(0.4, 0.0, 0.2, 1) 0.2s forwards;
+            filter: drop-shadow(0 0 3px hsl(var(--signature) / 0.5));
+            animation: drawSignature 7.5s ease-in-out 0.4s forwards;
           }
+
+          /* Crossfade: logo fades in as strokes fade out */
+          .logo-fade {
+            opacity: 0;
+            animation: logoFadeIn 1.8s ease-in-out forwards;
+            animation-delay: 6.4s; /* starts before strokes finish for overlap */
+          }
+          .strokes-crossfade {
+            animation: strokesFadeOut 1.6s ease-in-out forwards;
+            animation-delay: 6.6s; /* slight offset so crossfade feels natural */
+          }
+
           @keyframes drawSignature {
             0% { stroke-dashoffset: 6000; }
             100% { stroke-dashoffset: 0; }
+          }
+          @keyframes logoFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes strokesFadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
           }
         `}</style>
       </svg>
