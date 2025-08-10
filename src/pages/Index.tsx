@@ -2,29 +2,30 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { LocationSelector } from "@/components/LocationSelector";
 import { SignatureAnimation } from "@/components/SignatureAnimation";
-
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
   const { toast } = useToast();
-
-  const handleSubmit = () => {
-    if (!selectedCountry) {
-      toast({
-        title: "Please select your location",
-        description: "You must choose a country to continue",
-        variant: "destructive",
-      });
-      return;
-    }
-
+  const navigate = useNavigate();
+const handleSubmit = () => {
+  if (!selectedCountry) {
     toast({
-      title: "Location Selected",
-      description: `Redirecting to ${selectedCountry} regional portal...`,
+      title: "Please select your location",
+      description: "You must choose a country to continue",
+      variant: "destructive",
     });
+    return;
+  }
 
-    console.log(`Redirecting to portal for: ${selectedCountry}`);
-  };
+  toast({
+    title: "Please review the disclaimer",
+    description: "You'll be redirected now.",
+  });
+
+  console.log("Navigating to disclaimer page");
+  navigate("/disclaimer");
+};
 
 
   return (
