@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+/* Fonts are loaded via index.html (Arvo & Figtree) */
 
 @tailwind base;
 @tailwind components;
@@ -8,65 +8,59 @@
 
 @layer base {
   :root {
-    /* Dark theme colors */
-    --background: 220 13% 8%;
-    --foreground: 0 0% 98%;
+    /* Spartan Dark Color System (aligned with Algebris repo) */
+    --background: 0 0% 4%;
+    --foreground: 0 0% 94%;
 
-    --card: 220 13% 10%;
-    --card-foreground: 0 0% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 94%;
 
-    --popover: 220 13% 10%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 94%;
 
-    /* Gold accent system */
-    --primary: 44 51% 67%;
-    --primary-foreground: 220 13% 8%;
-    --primary-glow: 44 58% 72%;
+    /* Brand primary/secondary */
+    --primary: 48 62% 67%;
+    --primary-foreground: 0 0% 4%;
+    --primary-glow: 48 62% 72%;
 
-    --secondary: 220 13% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 0 0% 75%;
+    --secondary-foreground: 0 0% 4%;
 
-    --muted: 220 13% 12%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 0 0% 17%;
+    --muted-foreground: 0 0% 53%;
 
-    --accent: 44 51% 67%;
-    --accent-foreground: 220 13% 8%;
+    --accent: 30 48% 34%;
+    --accent-foreground: 0 0% 94%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 73% 64%;
+    --destructive-foreground: 0 0% 94%;
 
-    --border: 220 13% 20%;
-    --input: 220 13% 15%;
-    --ring: 44 51% 67%;
+    --border: 0 0% 17%;
+    --input: 0 0% 17%;
+    --ring: 48 62% 67%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom design tokens */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-dark: linear-gradient(180deg, hsl(220 13% 8%), hsl(220 13% 5%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 2%));
     --shadow-elegant: 0 25px 50px -12px hsl(0 0% 0% / 0.8);
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     --logo-fade-duration: 1.6s;
     
     /* Image overlay */
-    --overlay-dark: linear-gradient(45deg, hsl(220 13% 8% / 0.8), hsl(220 13% 8% / 0.6));
+    --overlay-dark: linear-gradient(45deg, hsl(0 0% 4% / 0.8), hsl(0 0% 4% / 0.6));
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Sidebar */
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 94%;
+    --sidebar-primary: 48 62% 67%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 13%;
+    --sidebar-accent-foreground: 0 0% 94%;
+    --sidebar-border: 0 0% 17%;
+    --sidebar-ring: 48 62% 67%;
   }
 
   .light {

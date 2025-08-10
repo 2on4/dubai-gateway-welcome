@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'inter': ['Inter', 'sans-serif'],
-				'playfair': ['Playfair Display', 'serif'],
+				'inter': ['Figtree', 'sans-serif'],
+				'playfair': ['Arvo', 'serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
