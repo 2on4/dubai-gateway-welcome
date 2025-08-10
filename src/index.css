@@ -19,9 +19,9 @@
     --popover-foreground: 0 0% 98%;
 
     /* Gold accent system */
-    --primary: 45 85% 65%;
+    --primary: 44 51% 67%;
     --primary-foreground: 220 13% 8%;
-    --primary-glow: 45 90% 70%;
+    --primary-glow: 44 58% 72%;
 
     --secondary: 220 13% 15%;
     --secondary-foreground: 0 0% 98%;
@@ -29,7 +29,7 @@
     --muted: 220 13% 12%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 45 85% 65%;
+    --accent: 44 51% 67%;
     --accent-foreground: 220 13% 8%;
 
     --destructive: 0 84.2% 60.2%;
@@ -37,7 +37,7 @@
 
     --border: 220 13% 20%;
     --input: 220 13% 15%;
-    --ring: 45 85% 65%;
+    --ring: 44 51% 67%;
 
     --radius: 0.75rem;
 
