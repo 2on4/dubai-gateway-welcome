@@ -67,10 +67,10 @@ export const SignatureAnimation = () => {
         {/* Logo inside the same SVG for perfect 1:1 sizing with the drawing */}
         <image
           href="/logo.png"
-          x="77"
-          y="66"
-          width="870"
-          height="748"
+          x="120"
+          y="104"
+          width="784"
+          height="673"
           preserveAspectRatio="xMidYMid meet"
           className="pointer-events-none logo-fade"
         />
