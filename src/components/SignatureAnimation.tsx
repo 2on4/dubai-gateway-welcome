@@ -13,6 +13,20 @@ export const SignatureAnimation = () => {
     const path = pathRef.current;
     if (!svg) return;
 
+    // Respect reduced motion: reveal instantly and skip animations
+    const prefersReduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReduced) {
+      const reducedPaths = svg.querySelectorAll<SVGPathElement>('.signature-glow, .signature-medium, .signature-path');
+      reducedPaths.forEach((p) => {
+        p.style.animation = 'none';
+        p.style.strokeDasharray = '0';
+        p.style.strokeDashoffset = '0';
+      });
+      svg.classList.add('reveal-logo');
+      document.body.classList.add('logo-revealed');
+      return;
+    }
+
     // Ensure stroke-dash metrics match real path lengths so visual end === animation end
     const paths = svg.querySelectorAll<SVGPathElement>('.signature-glow, .signature-medium, .signature-path');
     paths.forEach((p) => {
@@ -328,6 +342,24 @@ export const SignatureAnimation = () => {
           @keyframes strokesFadeOut {
             from { opacity: 1; }
             to { opacity: 0; }
+          }
+
+          /* Mobile performance tweaks */
+          @media (max-width: 1023px) {
+            .signature-glow { stroke-width: 8; filter: blur(4px); }
+            .signature-medium { stroke-width: 4; filter: blur(1px); opacity: 0.35; }
+            .signature-path { stroke-width: 2; filter: drop-shadow(0 0 2px hsl(var(--signature) / 0.4)); }
+          }
+
+          /* Accessibility: reduced motion */
+          @media (prefers-reduced-motion: reduce) {
+            .signature-glow, .signature-medium, .signature-path {
+              animation: none !important;
+              stroke-dasharray: 0 !important;
+              stroke-dashoffset: 0 !important;
+            }
+            .logo-fade { opacity: 1; }
+            .strokes-crossfade { opacity: 0; }
           }
         `}</style>
       </svg>

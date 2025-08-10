@@ -35,20 +35,13 @@ const Index = () => {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[90vh]">
             
             {/* Left side - Signature Animation (Hidden on mobile/tablet) */}
-            <div className="hidden lg:flex items-center justify-center h-[80vh] max-h-[600px]">
+            <div className="flex items-center justify-center h-[40vh] md:h-[60vh] lg:h-[80vh] max-h-[600px]">
               <SignatureAnimation />
             </div>
 
             {/* Right side - Content */}
             <div className="space-y-8 lg:pl-8 text-center lg:text-left reveal-with-logo">
               {/* Logo for mobile/tablet */}
-              <div className="flex justify-center lg:hidden mb-8">
-                <img 
-                  src="/logo.png" 
-                  alt="Leventis Logo" 
-                  className="h-24 w-24 object-contain"
-                />
-              </div>
 
               {/* Main Heading */}
               <div className="space-y-4">
