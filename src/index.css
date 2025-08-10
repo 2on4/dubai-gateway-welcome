@@ -47,7 +47,7 @@
     --shadow-elegant: 0 25px 50px -12px hsl(0 0% 0% / 0.8);
     --shadow-glow: 0 0 40px hsl(var(--primary) / 0.3);
     --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --logo-fade-duration: 1.4s;
+    --logo-fade-duration: 1.6s;
     
     /* Image overlay */
     --overlay-dark: linear-gradient(45deg, hsl(220 13% 8% / 0.8), hsl(220 13% 8% / 0.6));
