@@ -46,16 +46,16 @@ export const SignatureAnimation = () => {
       if (mainLen > 0) {
         const kf = `
 @keyframes drawSignatureDynamic {
-  0% { stroke-dashoffset: ${mainLen}px; animation-timing-function: cubic-bezier(.25,.1,.25,1); }
-  6% { stroke-dashoffset: ${Math.round(mainLen*0.95)}px; animation-timing-function: cubic-bezier(.2,.6,.2,1); }
-  14% { stroke-dashoffset: ${Math.round(mainLen*0.86)}px; }
-  24% { stroke-dashoffset: ${Math.round(mainLen*0.74)}px; }
-  36% { stroke-dashoffset: ${Math.round(mainLen*0.60)}px; animation-timing-function: cubic-bezier(.3,0,.2,1); }
-  50% { stroke-dashoffset: ${Math.round(mainLen*0.46)}px; }
-  64% { stroke-dashoffset: ${Math.round(mainLen*0.34)}px; }
-  78% { stroke-dashoffset: ${Math.round(mainLen*0.22)}px; animation-timing-function: cubic-bezier(.1,.8,.2,1); }
-  90% { stroke-dashoffset: ${Math.round(mainLen*0.10)}px; }
-  96% { stroke-dashoffset: ${Math.round(mainLen*0.05)}px; }
+  0% { stroke-dashoffset: ${mainLen}px; animation-timing-function: cubic-bezier(.2,.7,.2,1); }
+  5% { stroke-dashoffset: ${Math.round(mainLen*0.94)}px; }
+  12% { stroke-dashoffset: ${Math.round(mainLen*0.85)}px; }
+  22% { stroke-dashoffset: ${Math.round(mainLen*0.72)}px; animation-timing-function: cubic-bezier(.33,0,.2,1); }
+  35% { stroke-dashoffset: ${Math.round(mainLen*0.58)}px; }
+  50% { stroke-dashoffset: ${Math.round(mainLen*0.44)}px; }
+  65% { stroke-dashoffset: ${Math.round(mainLen*0.32)}px; animation-timing-function: cubic-bezier(.2,.8,.2,1); }
+  80% { stroke-dashoffset: ${Math.round(mainLen*0.20)}px; }
+  92% { stroke-dashoffset: ${Math.round(mainLen*0.08)}px; animation-timing-function: cubic-bezier(.2,.6,.2,1); }
+  98% { stroke-dashoffset: ${Math.round(mainLen*0.02)}px; }
   100% { stroke-dashoffset: 0; }
 }
 `;
@@ -88,7 +88,7 @@ export const SignatureAnimation = () => {
   }, []);
 
   return (
-    <div className="relative w-full h-[600px]">
+    <div className="relative w-full h-[600px] isolate">
       <svg
         ref={svgRef}
         viewBox="0 0 1024 880"
@@ -357,6 +357,7 @@ export const SignatureAnimation = () => {
           .strokes-crossfade {
             opacity: 1;
           }
+          .signature-glow, .signature-medium, .signature-path { will-change: stroke-dashoffset, opacity, filter; }
           .reveal-logo .logo-fade {
             animation: logoFadeIn var(--logo-fade-duration) ease-in-out forwards;
           }
