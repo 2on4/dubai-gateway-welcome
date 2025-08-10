@@ -40,7 +40,7 @@ const Index = () => {
             </div>
 
             {/* Right side - Content */}
-            <div className="space-y-8 lg:pl-8 text-center lg:text-left">
+            <div className="space-y-8 lg:pl-8 text-center lg:text-left reveal-with-logo">
               {/* Logo for mobile/tablet */}
               <div className="flex justify-center lg:hidden mb-8">
                 <img 
@@ -86,8 +86,8 @@ const Index = () => {
       </div>
 
       {/* Subtle background elements */}
-      <div className="absolute top-1/3 right-4 md:right-10 w-32 h-32 md:w-64 md:h-64 bg-primary/5 rounded-full blur-3xl animate-pulse -z-10"></div>
-      <div className="absolute bottom-1/4 left-4 md:left-10 w-24 h-24 md:w-48 md:h-48 bg-blue-500/5 rounded-full blur-3xl animate-pulse -z-10" style={{ animationDelay: '2s' }}></div>
+      <div className="absolute top-1/3 right-4 md:right-10 w-32 h-32 md:w-64 md:h-64 bg-primary/5 rounded-full blur-3xl animate-pulse -z-10 reveal-with-logo"></div>
+      <div className="absolute bottom-1/4 left-4 md:left-10 w-24 h-24 md:w-48 md:h-48 bg-blue-500/5 rounded-full blur-3xl animate-pulse -z-10 reveal-with-logo" style={{ animationDelay: '2s' }}></div>
     </div>
   );
 };

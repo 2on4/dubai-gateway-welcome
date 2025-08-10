@@ -28,6 +28,7 @@ export const SignatureAnimation = () => {
     const onEnd = (e: AnimationEvent) => {
       if (e.animationName === 'drawSignature') {
         svg.classList.add('reveal-logo');
+        document.body.classList.add('logo-revealed');
       }
     };
 
@@ -52,10 +53,10 @@ export const SignatureAnimation = () => {
         {/* Logo inside the same SVG for perfect 1:1 sizing with the drawing */}
         <image
           href="/logo.png"
-          x="0"
-          y="0"
-          width="1024"
-          height="880"
+          x="77"
+          y="66"
+          width="870"
+          height="748"
           preserveAspectRatio="xMidYMid meet"
           className="pointer-events-none logo-fade"
         />

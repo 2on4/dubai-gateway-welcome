@@ -98,3 +98,20 @@
     @apply bg-primary hover:bg-primary/90 text-black font-medium transition-colors duration-200;
   }
 }
+
+/* Logo reveal: slide-and-fade other content in when signature completes (desktop only) */
+@keyframes rightFadeIn {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (min-width: 1024px) {
+  .reveal-with-logo {
+    opacity: 0;
+    transform: translateX(24px);
+    will-change: transform, opacity;
+  }
+  body.logo-revealed .reveal-with-logo {
+    animation: rightFadeIn 1.4s ease-out forwards;
+  }
+}
