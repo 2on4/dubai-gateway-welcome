@@ -39,8 +39,36 @@ export const SignatureAnimation = () => {
       }
     });
 
+    // Build dynamic, human-like draw keyframes based on true path length
+    let styleEl: HTMLStyleElement | null = null;
+    try {
+      const mainLen = Math.ceil((path ?? paths[0])?.getTotalLength?.() || 0);
+      if (mainLen > 0) {
+        const kf = `
+@keyframes drawSignatureDynamic {
+  0% { stroke-dashoffset: ${mainLen}px; animation-timing-function: cubic-bezier(.25,.1,.25,1); }
+  6% { stroke-dashoffset: ${Math.round(mainLen*0.95)}px; animation-timing-function: cubic-bezier(.2,.6,.2,1); }
+  14% { stroke-dashoffset: ${Math.round(mainLen*0.86)}px; }
+  24% { stroke-dashoffset: ${Math.round(mainLen*0.74)}px; }
+  36% { stroke-dashoffset: ${Math.round(mainLen*0.60)}px; animation-timing-function: cubic-bezier(.3,0,.2,1); }
+  50% { stroke-dashoffset: ${Math.round(mainLen*0.46)}px; }
+  64% { stroke-dashoffset: ${Math.round(mainLen*0.34)}px; }
+  78% { stroke-dashoffset: ${Math.round(mainLen*0.22)}px; animation-timing-function: cubic-bezier(.1,.8,.2,1); }
+  90% { stroke-dashoffset: ${Math.round(mainLen*0.10)}px; }
+  96% { stroke-dashoffset: ${Math.round(mainLen*0.05)}px; }
+  100% { stroke-dashoffset: 0; }
+}
+`;
+        styleEl = document.createElement('style');
+        styleEl.textContent = kf;
+        document.head.appendChild(styleEl);
+        svg.style.setProperty('--draw-name', 'drawSignatureDynamic');
+      }
+    } catch {}
+
+
     const onEnd = (e: AnimationEvent) => {
-      if (e.animationName === 'drawSignature') {
+      if (e.animationName.startsWith('drawSignature')) {
         svg.classList.add('reveal-logo');
         document.body.classList.add('logo-revealed');
       }
@@ -52,6 +80,10 @@ export const SignatureAnimation = () => {
 
     return () => {
       target?.removeEventListener('animationend', onEnd as any);
+      if (styleEl && styleEl.parentNode) {
+        styleEl.parentNode.removeChild(styleEl);
+      }
+      svg.style.removeProperty('--draw-name');
     };
   }, []);
 
@@ -292,7 +324,7 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.15;
             filter: blur(8px);
-            animation: drawSignature var(--draw-duration) cubic-bezier(0.32, 0.02, 0.2, 1) forwards, glowPulse var(--draw-duration) ease-in-out forwards;
+            animation: var(--draw-name, drawSignature) var(--draw-duration) linear forwards, glowPulse var(--draw-duration) ease-in-out forwards;
           }
           .signature-medium {
             fill: none;
@@ -304,7 +336,7 @@ export const SignatureAnimation = () => {
             stroke-dashoffset: 6000;
             opacity: 0.4;
             filter: blur(2px);
-            animation: drawSignature var(--draw-duration) cubic-bezier(0.32, 0.02, 0.2, 1) forwards, glowPulse var(--draw-duration) ease-in-out forwards;
+            animation: var(--draw-name, drawSignature) var(--draw-duration) linear forwards, glowPulse var(--draw-duration) ease-in-out forwards;
           }
           .signature-path {
             fill: none;
@@ -315,7 +347,7 @@ export const SignatureAnimation = () => {
             stroke-dasharray: 6000;
             stroke-dashoffset: 6000;
             filter: drop-shadow(0 0 3px hsl(var(--signature) / 0.5));
-            animation: drawSignature var(--draw-duration) cubic-bezier(0.32, 0.02, 0.2, 1) forwards, pressurePulse var(--draw-duration) ease-in-out forwards;
+            animation: var(--draw-name, drawSignature) var(--draw-duration) linear forwards, pressurePulse var(--draw-duration) ease-in-out forwards;
           }
 
           /* Crossfade is triggered by a class when drawing finishes */

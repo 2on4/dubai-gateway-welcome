@@ -19,6 +19,12 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        {/* Global footer compliance note */}
+        <footer className="fixed inset-x-0 bottom-0 z-50 pointer-events-none">
+          <div className="mx-auto max-w-7xl px-4 md:px-6 py-2 text-center text-[11px] md:text-xs text-foreground/70">
+            Regulated by Dubai Financial Services Authority (DFSA) License Number F011023.
+          </div>
+        </footer>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
